@@ -1,124 +1,166 @@
-# Case — A Case-Study-First Portfolio Theme for Astro
+# Udayan Mishra — Portfolio
 
 [![Built with Astro](https://astro.badg.es/v2/built-with-astro/tiny.svg)](https://astro.build)
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 
-A case-study-first portfolio theme for Astro. Designed for professionals who want to showcase their thinking, decisions, and real impact—not just screenshots and tech stacks.
+Personal portfolio site for **Udayan Mishra**, frontend engineer (Delhi, India — working from Noida). The site is built with **[Case](https://github.com/erlandv/case)**, an Astro theme that treats work as case studies: problem, constraints, decisions, and verified outcomes—not screenshot grids.
 
-## Why Case?
+**Contact:** [udayanmishra354@gmail.com](mailto:udayanmishra354@gmail.com) · [GitHub](https://github.com/Udman06) · [LinkedIn](https://www.linkedin.com/in/udayan-mishra)
 
-Most portfolio themes focus on listing projects with screenshots and bullet points. Case takes a different approach: it treats every project as a case study with a structured narrative—problem, constraints, approach, key decisions, and measurable outcomes.
+---
 
-This lets you demonstrate not just what you built, but how you think. Hiring managers and clients see your decision-making process, trade-offs you considered, and the real impact of your work. You stand out by showing depth, not just breadth.
+## Preview
 
-## Demo
+Static site with light/dark theme. Layout and typography come from Case; copy and case studies are mine and sourced from [`docs/FACTS.md`](docs/FACTS.md).
 
 <div align="center">
-
-[![View Demo](https://img.shields.io/badge/View_Demo-→-0077FF?style=for-the-badge&logo=astro&logoColor=white)](https://case.erland.me)
-
-<table>
-  <tr>
-    <td width="50%">
-      <img src="./screenshots/light-mode.webp" loading="lazy" alt="Light Mode">
-      <p align="center"><em>Light Mode</em></p>
-    </td>
-    <td width="50%">
-      <img src="./screenshots/dark-mode.webp" loading="lazy" alt="Dark Mode">
-      <p align="center"><em>Dark Mode</em></p>
-    </td>
-  </tr>
-</table>
-
+  <table>
+    <tr>
+      <td width="50%">
+        <img src="./screenshots/light-mode.webp" loading="lazy" alt="Portfolio home page in light mode showing hero, featured case studies, and navigation">
+        <p align="center"><em>Light mode — home and featured case snapshots</em></p>
+      </td>
+      <td width="50%">
+        <img src="./screenshots/dark-mode.webp" loading="lazy" alt="Portfolio home page in dark mode">
+        <p align="center"><em>Dark mode — same structure, theme toggle</em></p>
+      </td>
+    </tr>
+  </table>
 </div>
 
-## Features
+> **Note:** Screenshots reflect the Case theme shell. After you deploy, replace these with captures of your live site (home, a project page, decisions) for README and OG assets.
 
-### Case Studies Over Screenshots
+---
 
-Document your engineering thinking with structured project narratives.
+## What you will find on the site
 
-- **Problem → Solution framework**: Context, constraints, approach, and measurable impact
-- **Decision documentation**: Trade-offs, alternatives, and reasoning behind key choices
-- **Quantified outcomes**: Performance improvements, team impact, and business results
-- **Strategic highlighting**: Feature your strongest work on the homepage
+| Section | Purpose |
+|--------|---------|
+| **Projects** | Case studies (Admin v3, Spotlyt Marketing, Reelax Ads Web, Spotlyt apps, Reelax Brand v2) |
+| **Decisions** | Short ADR-style logs (session handling, legacy routes, video playback, channel connect) |
+| **Journey** | Timeline — Honest Digital, Reelax internship, B.Tech |
+| **Uses** | Stack and tools used in production work |
+| **Contact** | Email and social links |
 
-### Built-in Decision Records
+Writing, speaking, and testimonials collections are empty; those items are omitted from navigation.
 
-Document architectural decisions with full context and alternatives.
+---
 
-- Problem statement and background context
-- Options considered with trade-off analysis
-- Chosen approach with reasoning
-- Outcomes and learnings
-- Tag-based organization and filtering
+## Work highlighted in case studies
 
-### Content Types for Technical Portfolios
+Facts below are copied from [`docs/FACTS.md`](docs/FACTS.md). Do not publish new metrics in the site or README without updating that file first.
 
-Purpose-built collections for engineering professionals.
+| Work | Role | Highlights |
+|------|------|------------|
+| **Reelax Admin v3** | Sole engineer | React 19, TanStack Start/Router/Query, Tailwind CSS 4, shadcn/ui · ~17k TS lines · 7 Vitest + 1 Playwright · Auth (roles), dashboard, discovery, orgs, payouts, KYC · many legacy routes still placeholders |
+| **Spotlyt Marketing** | Primary frontend | ~83% of current TypeScript, 48 commits · Lighthouse Performance **95+** · pipeline/proxy by teammates |
+| **Reelax Ads Web** | Major contributor | My Creators CRM: 21+ commits, 13 modules, 9 endpoints, ~4k-line helper (~91% mine) · Analytics refactor: 20 commits |
+| **Spotlyt customer app / Delivery** | Contributor | 43 and 18 commits respectively |
+| **Reelax Brand v2** | Contributor (in progress) | WhatsApp Embedded Signup (161-line module), Gmail OAuth, DTO mapping + tests, HTTPS local dev · chat sync & templates **not released** |
 
-- **Projects** — Deep-dive case studies with structured narratives
-- **Decisions** — ADR-style technical decision logs
-- **Journey** — Career milestones, transitions, and key learnings
-- **Writing** — Technical articles with auto-generated TOC
-- **Speaking** — Talks, podcasts, and workshop materials
-- **Tools** — Tech stack and development environment
-- **Testimonials** — Peer and client recommendations
+**Reelax internship (Bridgeness Technologies):** 15 Jun 2026 – 15 Oct 2026 · six production repos · 220+ commits · 30+ merged PRs.
 
-## Quick Start
+---
 
-### 1. Create a new project
+## Tech stack (this repository)
+
+| Layer | Choice |
+|-------|--------|
+| Framework | [Astro 5](https://astro.build) (SSG) |
+| Content | MDX + [Content Collections](https://docs.astro.build/en/guides/content-collections/) (Zod schemas in `src/content.config.ts`) |
+| Theme base | [Case](https://github.com/erlandv/case) (MIT) |
+| Images | Sharp (Astro assets) |
+| SEO | Sitemap integration, per-page metadata in `src/pages.config.ts` |
+| Config | Environment variables (`.env` from `.env.example`) — **not committed** |
+
+Production UI work referenced in case studies uses React/Next.js stacks as described in each project file—not embedded as islands in this Astro site.
+
+---
+
+## Local development
+
+**Prerequisites:** Node.js 18+, npm.
 
 ```bash
-npm create astro@latest -- --template erlandv/case
-```
-
-### 2. Configure your site
-
-```bash
+git clone <your-repo-url>
+cd udayan-portfolio
+npm install
 cp .env.example .env
-# Edit .env with your information
+# Edit .env: name, bio, SITE_URL (after deploy), social links
 ```
 
-### 3. Start development
+Run the dev server (this repo uses background mode in agent docs):
 
 ```bash
 npm run dev
+# or: astro dev --background  (see AGENTS.md)
 ```
 
-Your site is now running at [http://localhost:4321](http://localhost:4321)
+Open [http://localhost:4321](http://localhost:4321) (or the port Vite prints).
 
-## Documentation
+| Command | Action |
+|---------|--------|
+| `npm run dev` | Development server |
+| `npm run build` | `astro check` + production build to `dist/` |
+| `npm run preview` | Serve `dist/` locally |
 
-Full documentation is available in the [`docs/`](./docs/) folder:
+Content changes must pass schema validation—if frontmatter is wrong, `npm run build` fails with a clear error.
 
-### Getting Started
-- [Installation](./docs/01-getting-started/installation.md) — Prerequisites and setup
-- [Quick Start](./docs/01-getting-started/quick-start.md) — See results in 5 minutes
-- [Project Structure](./docs/01-getting-started/project-structure.md) — Understand the codebase
+---
 
-### Configuration
-- [Configuration](./docs/02-configuration/configuration.md) — Environment variables, navigation, favicons
+## Project layout (where to edit)
 
-### Content
-- [Content Guide](./docs/03-content/content-guide.md) — All content types and schemas
-- [Templates](./docs/03-content/templates.md) — Copy-paste templates for quick content creation
-- [Images](./docs/03-content/images.md) — Image handling and optimization
-- [Content Strategy](./docs/03-content/content-strategy.md) — Best practices for featured content
+```text
+docs/FACTS.md              # Single source of truth for public claims
+.env                       # Site identity & SEO (local only, gitignored)
+src/config.ts              # Nav links
+src/pages.config.ts        # Page titles & intros
+src/pages/index.astro      # Home hero & about paragraphs
+src/content/projects/      # Case study MDX
+src/content/decisions/     # ADR MDX
+src/content/journey/       # Timeline MDX
+src/content/uses/          # Stack & tools MDX
+public/                    # Favicon, web manifest, static assets
+```
 
-### Customization
-- [Styling](./docs/04-customization/styling.md) — Colors, typography, spacing, breakpoints
-- [Components](./docs/04-customization/components.md) — Modifying and creating components
-- [Advanced](./docs/04-customization/advanced.md) — Layouts, new content collections
+Copy and voice rules for contributors and AI edits: [`.cursor/rules/portfolio-voice.mdc`](.cursor/rules/portfolio-voice.mdc).
 
-### Deployment
-- [Deployment](./docs/05-deployment/deployment.md) — Build and deploy to various platforms
-- [Post-Deployment](./docs/05-deployment/post-deployment.md) — Verification checklist
+---
 
-### Reference
-- [Troubleshooting](./docs/06-reference/troubleshooting.md) — Common issues and solutions
+## Deployment
 
-## License
+1. Set `SITE_URL` in `.env` to your production URL (canonical links, sitemap, Open Graph).
+2. Run `npm run build` and deploy the `dist/` folder (Vercel, Netlify, Cloudflare Pages, etc.).
+3. Optional: add `public/Udayan_Mishra_Resume.pdf` and link it from nav when ready.
 
-Case Theme is free for personal and commercial use under the [MIT License](./LICENSE). Attribution is not required, but a link back to this repository is always appreciated if you find the theme useful.
-# Portfolio
+See [`docs/05-deployment/deployment.md`](docs/05-deployment/deployment.md) for platform-specific steps.
+
+---
+
+## Documentation (theme & Astro)
+
+| Topic | Doc |
+|-------|-----|
+| Install & structure | [`docs/01-getting-started/`](docs/01-getting-started/) |
+| Env & navigation | [`docs/02-configuration/configuration.md`](docs/02-configuration/configuration.md) |
+| Content schemas | [`docs/03-content/content-guide.md`](docs/03-content/content-guide.md) |
+| Styling & components | [`docs/04-customization/`](docs/04-customization/) |
+| Deploy checklist | [`docs/05-deployment/post-deployment.md`](docs/05-deployment/post-deployment.md) |
+
+---
+
+## Theme credit & license
+
+This site is derived from **[Case](https://github.com/erlandv/case)** by Erland (MIT). Case remains MIT-licensed; see [LICENSE](LICENSE).
+
+Portfolio **content** (case studies, decisions, copy) is © Udayan Mishra. Do not reuse employer confidential details; [`docs/FACTS.md`](docs/FACTS.md) defines what may be stated publicly.
+
+---
+
+## Roadmap (repo)
+
+- [ ] Production `SITE_URL` and live README demo link
+- [ ] Replace theme screenshots with production captures
+- [ ] Resume PDF in `public/`
+- [ ] Personal projects section (facts already in `FACTS.md`)
+- [ ] Verify ADR dates in `src/content/decisions/` against real decision timelines
