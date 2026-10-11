@@ -1,0 +1,18 @@
+---
+description: Voice and fact rules for all portfolio copy
+alwaysApply: true
+---
+VOICE: warm, curious, plain. First person. Short sentences, with an occasional longer one.
+Show curiosity by naming the question I was trying to answer ("I wanted to know why...").
+AUDIENCE: hiring managers and startup founders. Lead with the human problem and the result.
+Keep one precise technical line per section (stack or decision) for engineers.
+BALANCE: every case study has (1) what pulled me in, (2) what I decided and why,
+(3) what I would do differently. The About page has one personal paragraph.
+STYLE: specifics over adjectives. Sentence case headings. No emojis, no exclamation marks.
+BANNED: passionate, innovative, cutting-edge, seamless, robust, leverage, game-changing,
+rockstar, ninja, "dive into", "in today's fast-paced world".
+FACTS: use only facts in docs/FACTS.md. Never invent metrics, dates, quotes, employers,
+links or personal details. If a fact is missing, write a TODO and list it.
+OWNERSHIP: "sole engineer" and "built from setup" apply to Reelax Admin v3 only.
+Everywhere else use "contributed", "implemented", "major contributor" as stated in FACTS.
+CONFIDENTIAL: no screenshots, URLs, customer names or data from Reelax internal tools.
