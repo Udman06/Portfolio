@@ -1,0 +1,56 @@
+---
+title: "Spotlyt Marketing"
+role: "Primary frontend engineer"
+year: 2026
+outcomeSummary: "Rebuilt the public landing site into a fast, video-rich lead funnel with a Lighthouse Performance score of 95+."
+overview: "The public landing site for Spotlyt, an AI influencer-marketing product, built with React 19, Vite, Tailwind CSS 4 and Framer Motion from a Figma section system."
+problem: "The site had to carry autoplaying creator video and motion without hurting load time, and had to turn visitors into leads."
+constraints:
+  - "Many looping videos competing for bandwidth and browser autoplay rules"
+  - "Legal pages needed their own routes while landing navigation stayed single-page"
+  - "Deployment pipeline and API proxy were already set up by teammates"
+approach: "Implemented the section system from Figma, added one page-wide video playback manager, lazy-loaded below-the-fold sections, and validated the contact form before it reaches the API."
+keyDecisions:
+  - decision: "Keep one reel playing at a time through a page-level playback manager"
+    reasoning: "Prevents several videos autoplaying together and gives the hero, creator wall and demo modal one set of rules"
+    alternatives:
+      - "Let each video component manage itself"
+  - decision: "Lazy-load below-the-fold sections and prefetch when the browser is idle"
+    reasoning: "Keeps the first paint light while sections are ready by scroll time"
+    alternatives:
+      - "Load every section up front"
+  - decision: "Return from legal pages to landing sections with a stored scroll target instead of URL hashes"
+    reasoning: "Keeps URLs clean"
+    alternatives:
+      - "Hash-based section links"
+techStack:
+  - "React 19"
+  - "TypeScript"
+  - "Vite"
+  - "react-router-dom"
+  - "Tailwind CSS 4"
+  - "Framer Motion"
+impact:
+  metrics:
+    - label: "Lighthouse Performance"
+      value: "95+"
+    - label: "Source authored"
+      value: "~83% of current TypeScript lines"
+    - label: "Commits"
+      value: "48"
+  qualitative: "A faster first load and a validated lead form that sends visitors into the product app."
+learnings:
+  - "Browser autoplay policy shapes video design as much as the markup does"
+  - "One owner for shared browser resources simplifies every component that uses them"
+featured: true
+status: completed
+order: 2
+relatedDecisions:
+  - "single-active-reel-playback"
+---
+
+I wanted to know if a video-heavy landing page could still score 95+ on Lighthouse and still convert visitors. Autoplay rules and many looping reels made that a real question.
+
+I implemented the Figma section system in React 19 and Vite, kept one page-level playback manager for the hero, creator wall and demo modal, and lazy-loaded below-the-fold sections. Privacy and Terms sit on their own routes; the contact form validates name, email and optional 10-digit Indian mobile before the API call, with toast feedback. Environment-specific Open Graph metadata covers the OG image and hero media per deploy.
+
+I would document autoplay and bandwidth limits in the repo README on day one so the next video section does not rediscover the same constraints.
