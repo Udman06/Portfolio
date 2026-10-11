@@ -128,8 +128,6 @@ export const siteConfig = {
     { label: 'Projects', href: '/projects' },
     { label: 'Decisions', href: '/decisions' },
     { label: 'Journey', href: '/journey' },
-    { label: 'Writing', href: '/writing' },
-    { label: 'Speaking', href: '/speaking' },
     { label: 'Uses', href: '/uses' },
     { label: 'Contact', href: '/contact' },
   ],
