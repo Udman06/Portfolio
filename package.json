@@ -10,18 +10,19 @@
     "case-study",
     "professional"
   ],
-  "author": "Erland <hello@erland.me>",
+  "author": "Udayan Mishra <udayanmishra354@gmail.com>",
   "repository": {
     "type": "git",
     "url": "https://github.com/erlandv/case.git"
   },
-  "homepage": "https://case.erland.me",
+  "homepage": "https://udayanportfolio.vercel.app",
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",
     "build": "astro check && astro build",
     "preview": "astro preview",
-    "astro": "astro"
+    "astro": "astro",
+    "icons": "node scripts/generate-favicons.mjs"
   },
   "dependencies": {
     "@astrojs/mdx": "^4.0.0",

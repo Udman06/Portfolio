@@ -19,7 +19,7 @@ Ownership: "sole engineer" and "built from setup" apply to Admin v3 only. Never 
 
 ## Site-only TODOs
 
-- Production SITE_URL (`.env`)
+- Production SITE_URL: `https://udayanportfolio.vercel.app` (update when a custom domain is added)
 - Resume PDF at `public/Udayan_Mishra_Resume.pdf`
 - ADR calendar dates in `src/content/decisions/` (not in verified facts above)
 - Personal interests sentence for about section (optional)

@@ -67,7 +67,10 @@ const {
 } = Astro.props;
 
 // Generate full title with site name suffix (unless noSuffix is true)
-const fullTitle = noSuffix ? title : (title ? `${title} | ${siteConfig.author.name}` : siteConfig.title);
+const fullTitle = noSuffix ? title : (title ? `${title} · ${siteConfig.author.name}` : siteConfig.title);
+
+// Social and browser titles share the same string
+const socialTitle = fullTitle;
 
 // Get the current URL from Astro
 const currentURL = canonicalURL || Astro.url.href;
@@ -103,10 +106,11 @@ const twitterHandle = siteConfig.social.twitter
 <!-- Open Graph Tags -->
 <meta property="og:type" content={type} />
 <meta property="og:url" content={currentURL} />
-<meta property="og:title" content={title} />
+<meta property="og:title" content={socialTitle} />
 <meta property="og:description" content={description} />
 <meta property="og:image" content={absoluteImageURL} />
-<meta property="og:site_name" content={siteConfig.title} />
+<meta property="og:site_name" content={siteConfig.author.name} />
+<meta property="og:locale" content="en_IN" />
 
 <!-- Article-specific Open Graph tags -->
 {type === 'article' && publishDate && (
@@ -121,8 +125,9 @@ const twitterHandle = siteConfig.social.twitter
 <!-- Twitter Card Tags -->
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:url" content={currentURL} />
-<meta name="twitter:title" content={title} />
+<meta name="twitter:title" content={socialTitle} />
 <meta name="twitter:description" content={description} />
 <meta name="twitter:image" content={absoluteImageURL} />
+<meta name="twitter:image:alt" content={`${siteConfig.author.name}, ${siteConfig.author.title}`} />
 {twitterHandle && <meta name="twitter:site" content={twitterHandle} />}
 {twitterHandle && <meta name="twitter:creator" content={twitterHandle} />}

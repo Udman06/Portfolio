@@ -35,10 +35,11 @@ function generateStructuredData(type: string, data: Record<string, any>) {
       return {
         '@context': baseContext,
         '@type': 'WebSite',
-        name: data.name || siteConfig.title,
+        name: data.name || siteConfig.author.name,
+        alternateName: siteConfig.title !== siteConfig.author.name ? siteConfig.title : undefined,
         description: data.description || siteConfig.description,
         url: data.url || siteURL,
-        inLanguage: siteConfig.language,
+        inLanguage: `${siteConfig.language}-IN`,
         author: {
           '@type': 'Person',
           name: siteConfig.author.name,
@@ -108,8 +109,16 @@ function generateStructuredData(type: string, data: Record<string, any>) {
         url: data.url || siteURL,
         sameAs: data.socialLinks || socialLinks,
         email: data.email || siteConfig.author.email,
-        image: data.image,
+        image: data.image || `${siteURL}/og-image.png`,
         knowsAbout: data.skills || [],
+        ...(siteConfig.author.location
+          ? {
+              homeLocation: {
+                '@type': 'Place',
+                name: siteConfig.author.location,
+              },
+            }
+          : {}),
       };
 
     case 'BreadcrumbList':

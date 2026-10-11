@@ -17,53 +17,53 @@ interface PageMeta {
 export const pagesConfig = {
   home: {
     title: 'Home',
-    description: 'Udayan Mishra is a frontend engineer building React and Next.js products: internal tools, marketing sites and customer workflows.',
+    description: 'Frontend engineer building React and Next.js products—internal tools, marketing sites, and customer workflows.',
   },
   
   projects: {
-    title: 'Projects - Case Studies',
-    description: 'Case studies on Reelax Admin v3, Spotlyt Marketing, Reelax Ads Web, Spotlyt apps and Reelax Brand v2.',
+    title: 'Projects',
+    description: 'Case studies on Reelax Admin v3, Spotlyt Marketing, Reelax Ads Web, Spotlyt apps, and Reelax Brand v2.',
     heading: 'Projects',
     intro: 'Each write-up starts with the problem someone felt, then the call I made and what shipped.',
   },
   
   decisions: {
-    title: 'Decisions - Architectural and technical choices',
-    description: 'A log of frontend and integration decisions: session handling, legacy migration, video playback and channel connection.',
+    title: 'Decisions',
+    description: 'A log of frontend and integration decisions: session handling, legacy migration, video playback, and channel connection.',
     heading: 'Decisions',
     intro: 'Short records of what I chose, what I skipped, and why—while the code was still fresh.',
   },
   
   journey: {
-    title: 'Journey - Career timeline',
+    title: 'Journey',
     description: 'Timeline from Honest Digital and Reelax internships through B.Tech completion and Reelax Admin v3.',
     heading: 'Journey',
     intro: 'Milestones and transitions that shaped how I work on React and Next.js products.',
   },
   
   writing: {
-    title: 'Writing - Technical articles',
+    title: 'Writing',
     description: 'Technical articles and notes.',
     heading: 'Writing',
     intro: 'Articles will appear here when published.',
   },
 
   speaking: {
-    title: 'Speaking - Talks and presentations',
+    title: 'Speaking',
     description: 'Conference talks and presentations.',
     heading: 'Speaking',
     intro: 'Talks will appear here when scheduled.',
   },
   
   uses: {
-    title: 'Uses - Tools and stack',
+    title: 'Uses',
     description: 'Languages, frameworks and tools I use for frontend work.',
     heading: 'Uses',
     intro: 'Stack and tooling I reach for on React, Next.js and TanStack projects.',
   },
   
   contact: {
-    title: 'Contact - Get in touch',
+    title: 'Contact',
     description: 'Get in touch about frontend and product engineering roles, projects or collaborations.',
     heading: 'Get in touch',
   },

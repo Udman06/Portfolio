@@ -1,16 +1,32 @@
 {
-  "name": "Udayan Mishra - Frontend Engineer",
+  "id": "/",
+  "name": "Udayan Mishra",
   "short_name": "Udayan Mishra",
-  "description": "Frontend engineer building React and Next.js products: internal tools, marketing sites and customer workflows.",
+  "description": "Frontend engineer building React and Next.js products—internal tools, marketing sites, and customer workflows.",
   "start_url": "/",
+  "scope": "/",
   "display": "standalone",
+  "lang": "en-IN",
   "background_color": "#0a0a0a",
   "theme_color": "#0a0a0a",
   "icons": [
     {
       "src": "/favicon.svg",
       "sizes": "any",
-      "type": "image/svg+xml"
+      "type": "image/svg+xml",
+      "purpose": "any"
+    },
+    {
+      "src": "/favicon-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/favicon-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
     }
   ]
 }

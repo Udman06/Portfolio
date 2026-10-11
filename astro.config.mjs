@@ -71,7 +71,7 @@ export default defineConfig({
    * 
    * Set SITE_URL in your .env file (e.g., https://example.com)
    */
-  site: SITE_URL || 'https://example.com',
+  site: SITE_URL || 'https://udayanportfolio.vercel.app',
   
   /**
    * Environment variables schema (Astro v5+)
@@ -87,16 +87,16 @@ export default defineConfig({
   env: {
     schema: {
       // Site configuration
-      SITE_URL: envField.string({ context: 'client', access: 'public', default: 'https://example.com' }),
+      SITE_URL: envField.string({ context: 'client', access: 'public', default: 'https://udayanportfolio.vercel.app' }),
       SITE_LANGUAGE: envField.string({ context: 'client', access: 'public', default: 'en' }),
-      SITE_TITLE: envField.string({ context: 'client', access: 'public', default: 'Professional Portfolio' }),
-      SITE_DESCRIPTION: envField.string({ context: 'client', access: 'public', default: 'Engineering leader specializing in system architecture, technical decision-making, and delivering measurable business impact.' }),
+      SITE_TITLE: envField.string({ context: 'client', access: 'public', default: 'Udayan Mishra' }),
+      SITE_DESCRIPTION: envField.string({ context: 'client', access: 'public', default: 'Frontend engineer building React and Next.js products—internal tools, marketing sites, and customer workflows. Based in Delhi, working from Noida.' }),
       
       // Author information
-      SITE_AUTHOR_NAME: envField.string({ context: 'client', access: 'public', default: 'Your Name' }),
-      SITE_AUTHOR_TITLE: envField.string({ context: 'client', access: 'public', default: 'Senior Software Engineer' }),
-      SITE_AUTHOR_BIO: envField.string({ context: 'client', access: 'public', default: 'Engineering leader focused on solving complex technical challenges through thoughtful architecture and pragmatic trade-off analysis.' }),
-      SITE_AUTHOR_EMAIL: envField.string({ context: 'client', access: 'public', default: 'hello@example.com' }),
+      SITE_AUTHOR_NAME: envField.string({ context: 'client', access: 'public', default: 'Udayan Mishra' }),
+      SITE_AUTHOR_TITLE: envField.string({ context: 'client', access: 'public', default: 'Frontend Engineer' }),
+      SITE_AUTHOR_BIO: envField.string({ context: 'client', access: 'public', default: 'I live in Delhi and work from Noida. B.Tech in Computer Science, Manipal University Jaipur, Sep 2022 to Jul 2026.' }),
+      SITE_AUTHOR_EMAIL: envField.string({ context: 'client', access: 'public', default: 'udayanmishra354@gmail.com' }),
       SITE_AUTHOR_LOCATION: envField.string({ context: 'client', access: 'public', default: '' }),
       
       // Social media links (empty string = hidden)

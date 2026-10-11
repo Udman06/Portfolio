@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" role="img" aria-hidden="true">
+  <path
+    fill="currentColor"
+    fill-rule="evenodd"
+    d="M4 10h2.35v6.55a3.25 3.25 0 0 0 6.5 0V10h2.35v6.8a6.05 6.05 0 0 1-12.1 0V10z"
+  />
+  <path
+    fill="#3b82f6"
+    d="M15.85 7.75h2.15v10.75h-2.15V7.75z M20.85 12.45a3.35 3.35 0 1 1 0 6.7a3.35 3.35 0 1 1 0-6.7"
+  />
+</svg>
