@@ -1,0 +1,48 @@
+---
+title: "Spotlyt campaign and delivery workflows"
+role: "Contributor"
+year: 2026
+outcomeSummary: "Delivered feature slices across the Spotlyt customer app and the Spotlyt Delivery workspace."
+overview: "Contributions to two products: the customer app where brands create and manage campaigns (Next.js 16), and the internal Delivery workspace the delivery team uses to run live campaigns (React and Vite)."
+problem: "Campaign creation, payments, content review and payouts each had rules that were easy to get wrong when scattered across components."
+constraints:
+  - "Existing codebases with established patterns and other authors"
+  - "Rules depend on campaign and content status"
+  - "Server Actions in the customer app, a large API service module in Delivery"
+approach: "Centralised the rules in small modules (post-checkout redirects, profile validation, content-review eligibility) and reused them across screens."
+keyDecisions:
+  - decision: "Put post-checkout redirect rules in one module across draft, paid and live states"
+    reasoning: "One place to change when states change"
+    alternatives:
+      - "Redirect logic inside each page"
+  - decision: "Put content-review eligibility in shared permission helpers (sample versus final content)"
+    reasoning: "UI and actions stay consistent"
+    alternatives:
+      - "Check statuses inline in each component"
+techStack:
+  - "Next.js 16"
+  - "React 19"
+  - "TypeScript"
+  - "Zod"
+  - "Server Actions"
+  - "Vite"
+  - "Tailwind CSS 4"
+impact:
+  metrics:
+    - label: "Spotlyt customer app"
+      value: "43 commits"
+    - label: "Spotlyt Delivery"
+      value: "18 commits"
+  qualitative: "Clearer campaign, payment and review flows. These are contributions, not sole ownership."
+learnings:
+  - "Small rule modules are easier to test and to change than rules spread through components"
+featured: false
+status: completed
+order: 5
+---
+
+I wanted to know why checkout and content review kept diverging between pages. Campaign state rules were copy-pasted and easy to get wrong.
+
+I contributed small rule modules on the Spotlyt customer app (Next.js 16, Server Actions) for post-checkout redirects, profile validation, payment tab filters and related slices. On the Delivery workspace (React, Vite) I contributed content-review eligibility, delivery-manager approvals, profile sync with polling, and shared UI helpers. These are shared codebases with other authors.
+
+I would add a one-page state diagram for campaign and content status before the next redirect change, so new contributors see the same picture I had in my head.
