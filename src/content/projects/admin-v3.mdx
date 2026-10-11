@@ -1,0 +1,60 @@
+---
+title: "Reelax Admin v3"
+role: "Sole frontend engineer"
+year: 2026
+teamSize: 1
+outcomeSummary: "Sole-engineer console for auth with roles, dashboard, influencer discovery, organisations, payouts and KYC; many legacy routes remain placeholders."
+overview: "An internal operations console built on React 19, TanStack Start, Router and Query, Tailwind CSS 4 and shadcn/ui, in about 17,000 lines of TypeScript."
+problem: "The team needed to replace the legacy admin with a faster, role-aware console while keeping its workflows working."
+constraints:
+  - "Legacy APIs return older response shapes"
+  - "Many legacy screens, so delivery had to be phased"
+  - "Permissions are enforced by the backend and the UI can only guide access"
+approach: "Built a route-parity registry first, migrated the highest-value modules, and put one API client in front of the legacy backend to normalise responses and handle sessions."
+keyDecisions:
+  - decision: "Render authenticated routes on the client only"
+    reasoning: "Avoids SSR and session mismatches"
+    alternatives:
+      - "Server-render authenticated pages"
+  - decision: "Register legacy URLs as placeholders and build modules in priority order"
+    reasoning: "Keeps URLs stable and makes the remaining scope visible"
+    alternatives:
+      - "Rewrite every module before release"
+  - decision: "Check the session once before signing out on a 401"
+    reasoning: "One forbidden resource should not end a valid session"
+    alternatives:
+      - "Sign out on any 401"
+techStack:
+  - "React 19"
+  - "TypeScript"
+  - "TanStack Start, Router and Query"
+  - "Tailwind CSS 4"
+  - "shadcn/ui"
+  - "Vitest"
+  - "Playwright"
+impact:
+  metrics:
+    - label: "Codebase"
+      value: "~17,000 lines of TypeScript"
+    - label: "Tests"
+      value: "7 Vitest files and 1 Playwright spec"
+    - label: "Modules built"
+      value: "Auth with roles, dashboard, influencer discovery, organisations, payouts, KYC views"
+  qualitative: "Shipped modules on a ~17,000-line TypeScript base; many legacy routes are still placeholders."
+learnings:
+  - "Writing the route-parity registry first made the scope visible"
+  - "Decisions are easier to defend when they are written down as they are made"
+featured: true
+status: ongoing
+order: 1
+relatedDecisions:
+  - "client-only-authenticated-routes"
+  - "session-check-before-sign-out"
+  - "placeholder-routes-for-legacy-parity"
+---
+
+I wanted to know whether we could replace the legacy admin without breaking bookmarks or daily ops work. Operators still needed auth, discovery, org wallets, and payouts while dozens of old URLs existed.
+
+I built from setup with a route-parity registry first, then shipped modules in priority order with one API client in front of the legacy backend. Stack: React 19, TanStack Start, Router and Query, Tailwind CSS 4, shadcn/ui. Auth includes roles; discovery, organisations, payouts and KYC views are in place while many legacy routes stay placeholders.
+
+Next time I would split the helper surface earlier—even with a registry, some shared table patterns could move out before the module count grows.
