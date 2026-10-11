@@ -1,0 +1,53 @@
+---
+title: "Reelax Ads Web — My Creators and analytics"
+role: "Major contributor"
+year: 2026
+outcomeSummary: "My Creators CRM and advanced analytics refactor on Reelax Ads Web."
+overview: "Reelax Ads Web: My Creators CRM (21+ commits, 13 modules, 9 endpoints) and advanced analytics refactor (20 commits), with a ~4,000-line helper module about 91% mine."
+problem: "Brands manage their own creator lists and read campaign performance, and both screens had to handle custom data, large lists and clearer metrics."
+constraints:
+  - "An existing React 18, Redux and Create React App codebase with a callback-based API layer"
+  - "Table, filter and export logic had to handle custom field types"
+  - "Credit-gated actions needed a clear confirmation step"
+approach: "Centralised table mapping, filtering and export in one helper module, added typed custom fields with sanitising, and split analytics screens into sections with tooltips and metric cards."
+keyDecisions:
+  - decision: "Keep table, filter and export logic in one helper module"
+    reasoning: "Speeds up feature work and keeps behaviour consistent, at the cost of a large module of about 4,000 lines"
+    alternatives:
+      - "Inline the logic in each screen component"
+  - decision: "Type custom fields (email, phone, currency, date, percentage) and sanitise input"
+    reasoning: "Keeps bad data out of the table and makes per-type filters possible"
+    alternatives:
+      - "Store every custom field as free text"
+  - decision: "Export to Excel in batches"
+    reasoning: "Large lists export without one huge request"
+    alternatives:
+      - "Export in a single request"
+techStack:
+  - "React 18"
+  - "Redux"
+  - "ag-Grid"
+  - "MUI"
+  - "REST SDK layer"
+impact:
+  metrics:
+    - label: "My Creators CRM"
+      value: "21+ commits, 13 modules, 9 endpoints"
+    - label: "Advanced analytics refactor"
+      value: "20 commits"
+    - label: "Helper module"
+      value: "~4,000 lines, about 91% of current lines mine"
+  qualitative: "Brands can store, filter and export custom creator data and read campaign analytics in clearer sections."
+learnings:
+  - "A single helper module speeds delivery but needs clear boundaries"
+  - "Cost confirmation belongs before the action, not after"
+featured: true
+status: completed
+order: 3
+---
+
+I wanted to know how brands could keep large creator lists usable when every team adds different custom fields. The same question applied to campaign analytics: lots of numbers, not much signal.
+
+I centralised table mapping, filters and export in one helper module (~4,000 lines) on React 18, Redux and ag-Grid, with typed custom fields and batched Excel export. Analytics screens became sections with tooltips and metric cards; credit-gated actions ask for confirmation before the API call.
+
+I would carve the helper into filter, export and column-mapping files once a second screen needed the same behaviour, instead of waiting until the module was already large.
