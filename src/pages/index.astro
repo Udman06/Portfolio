@@ -51,7 +51,7 @@ const allProjects = await getCollection('projects');
 const featuredProjects = allProjects
   .filter(project => project.data.featured === true)
   .sort((a, b) => (a.data.order || 999) - (b.data.order || 999))
-  .slice(0, 2);
+  .slice(0, 3);
 
 /**
  * Case snapshots for hero display
@@ -93,18 +93,18 @@ const recentDecisions = allDecisions
         <!-- Left: Value Statement -->
         <div class="hero-left">
           <h1 class="hero-title">
-            I don't just ship projects.<br/>
-            <span class="hero-title-emphasis">I document decisions, trade-offs, and outcomes.</span>
+            I build React and Next.js products where the UI has to match messy, real APIs.
           </h1>
           <p class="hero-sub">
-            A portfolio built around case studies — not screenshots.
+            Case studies on what broke, what I chose, and what shipped.
           </p>
           <p class="hero-meta">
             {siteConfig.author.name} · {siteConfig.author.title}
+            {siteConfig.author.location && ` · ${siteConfig.author.location}`}
           </p>
           <div class="hero-cta">
-            <a href="/projects" class="btn-primary">Explore Case Studies</a>
-            <a href="/decisions" class="btn-secondary">How I Make Decisions</a>
+            <a href="/projects" class="btn-primary">Read case studies</a>
+            <a href="/decisions" class="btn-secondary">See decisions</a>
           </div>
         </div>
 
@@ -126,10 +126,10 @@ const recentDecisions = allDecisions
     <!-- Introduction -->
     <section class="introduction">
       <p>
-        I'm {siteConfig.author.name}, {siteConfig.author.title.toLowerCase()} focused on building systems that move real business metrics.
+        {siteConfig.author.bio}
       </p>
       <p>
-        Every major decision is documented—because great engineers don't just build things, they explain why.
+        I'm a frontend engineer. At Reelax (Jun to Oct 2026) I worked across six production repositories with 220+ commits and 30+ merged PRs. I built Reelax Admin v3 as the sole engineer, was primary frontend engineer on Spotlyt Marketing, and contributed across Ads Web, Spotlyt customer and Delivery apps, and Reelax Brand v2. I'm also learning backend with Node.js, Express and MongoDB through a small notes API.
       </p>
       <ForwardLink href="/journey" text="Read my journey" variant="muted" />
     </section>
@@ -137,7 +137,7 @@ const recentDecisions = allDecisions
     <!-- Recent Decisions -->
     <section class="recent-decisions">
       <div class="section-header">
-        <h2>Recent Decisions</h2>
+        <h2>Recent decisions</h2>
         <ForwardLink href="/decisions" text="View all" variant="muted" />
       </div>
       
@@ -165,21 +165,21 @@ const recentDecisions = allDecisions
 
     <!-- What I Think About -->
     <section class="thinking">
-      <h2>Problems I Enjoy Solving</h2>
+      <h2>Problems I work on</h2>
       <p class="thinking-list">
-        How to scale systems without scaling complexity · When to choose consistency over availability · Making legacy codebases maintainable · Designing APIs that last · Building teams that ship · Turning technical debt into technical investment · Documenting decisions so future-you understands past-you
+        Normalising legacy API responses at the UI boundary · Role-aware navigation and session handling · Table filters, exports and custom fields at scale · Video and motion without hurting first load · OAuth and third-party SDK flows in production apps · Writing decisions down as the code ships
       </p>
     </section>
 
     <!-- CTA -->
     <section class="cta">
-      <h2>Let's Work Together</h2>
+      <h2>Get in touch</h2>
       <p>
-        Looking for technical leadership, architectural guidance, or someone who documents their thinking? Let's talk.
+        I'm open to frontend and product engineering roles. Send a note about a role, a project, or something you're building.
       </p>
       <div class="cta-buttons">
-        <a href="/projects" class="btn-primary">View My Work</a>
-        <a href="/contact" class="btn-secondary">Get in Touch</a>
+        <a href="/projects" class="btn-primary">View my work</a>
+        <a href="/contact" class="btn-secondary">Get in touch</a>
       </div>
     </section>
   </main>
