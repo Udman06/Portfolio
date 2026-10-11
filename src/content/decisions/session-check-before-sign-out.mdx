@@ -1,0 +1,18 @@
+---
+title: "Check session before sign-out on 401"
+date: 2026-10-01
+context: "A 401 can come from one forbidden resource, not an expired session."
+decision: "Check the session once, shared across concurrent requests, before signing out."
+alternatives:
+  - option: "Sign out on any 401"
+    pros:
+      - "Simple"
+    cons:
+      - "Ends valid sessions"
+reasoning: "One forbidden resource should not end a session that is still valid for the rest of the app."
+tags:
+  - "auth"
+  - "api-client"
+relatedProjects:
+  - "admin-v3"
+---

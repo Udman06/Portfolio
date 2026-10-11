@@ -1,0 +1,18 @@
+---
+title: "Single active reel playback"
+date: 2026-09-08
+context: "Hero, creator wall and demo modal all play video."
+decision: "One page-level playback manager."
+alternatives:
+  - option: "Per-component control"
+    pros:
+      - "Simple components"
+    cons:
+      - "Overlapping autoplay"
+reasoning: "Browser autoplay rules and bandwidth limits are easier to satisfy when one module owns play, pause and focus."
+tags:
+  - "video"
+  - "performance"
+relatedProjects:
+  - "spotlyt-marketing"
+---

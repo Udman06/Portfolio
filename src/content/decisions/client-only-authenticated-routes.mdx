@@ -1,0 +1,19 @@
+---
+title: "Render authenticated routes on the client only"
+date: 2026-09-28
+context: "Internal admin pages depend on a browser session."
+decision: "Render authenticated routes on the client only."
+alternatives:
+  - option: "Server-render authenticated pages"
+    pros:
+      - "Faster first paint"
+    cons:
+      - "Session and SSR mismatches"
+reasoning: "Avoids mismatches for an internal tool where SEO is irrelevant."
+tags:
+  - "admin"
+  - "routing"
+  - "session"
+relatedProjects:
+  - "admin-v3"
+---

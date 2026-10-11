@@ -1,0 +1,18 @@
+---
+title: "Dual-mode channel connection"
+date: 2026-10-07
+context: "Gmail returns an OAuth URL, WhatsApp returns Meta configuration fields."
+decision: "Support redirect for Gmail and embedded signup for WhatsApp."
+alternatives:
+  - option: "Backend-only redirect for both"
+    pros:
+      - "Simpler client"
+    cons:
+      - "Does not fit Meta's SDK flow"
+reasoning: "Each provider's connect flow is different; the UI must branch while sharing validation and DTO mapping. Trade-offs include HTTPS for local Meta login, loading a third-party script, and popup blockers during embedded signup."
+tags:
+  - "oauth"
+  - "integrations"
+relatedProjects:
+  - "reelax-brand-v2"
+---

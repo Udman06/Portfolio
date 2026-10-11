@@ -1,0 +1,18 @@
+---
+title: "Placeholder routes for legacy URL parity"
+date: 2026-09-28
+context: "Many legacy admin URLs must keep working while modules are rebuilt."
+decision: "Register all legacy URLs as placeholders and build modules by priority."
+alternatives:
+  - option: "Rewrite everything before release"
+    pros:
+      - "Complete at launch"
+    cons:
+      - "Late feedback"
+reasoning: "Stable URLs and a visible backlog let the team ship high-value modules first without hiding remaining scope."
+tags:
+  - "migration"
+  - "routing"
+relatedProjects:
+  - "admin-v3"
+---
