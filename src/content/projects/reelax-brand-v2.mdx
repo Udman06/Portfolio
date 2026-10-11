@@ -1,0 +1,50 @@
+---
+title: "Reelax Brand v2"
+role: "Contributor"
+year: 2026
+outcomeSummary: "Contributed WhatsApp Embedded Signup and Gmail OAuth for channel connection; chat sync and template forms are in progress and not released."
+overview: "Outreach channel connection on Reelax Brand v2: Next.js 16, React 19, Zod, DTO mapping with tests, and HTTPS for local Meta SDK development."
+problem: "Brands need connected WhatsApp and Gmail before outreach, and live APIs did not match the first UI mocks."
+constraints:
+  - "Gmail uses OAuth redirect; WhatsApp uses Meta Embedded Signup"
+  - "Meta SDK requires HTTPS, including local development"
+  - "Chat sync and template forms are not released yet"
+approach: "Mapped API responses through a DTO layer with unit tests, implemented the 161-line WhatsApp Embedded Signup module and Gmail OAuth, and ran local dev over HTTPS."
+keyDecisions:
+  - decision: "Support redirect for Gmail and embedded signup for WhatsApp"
+    reasoning: "Gmail returns an OAuth URL; WhatsApp returns Meta configuration fields"
+    alternatives:
+      - "Backend-only redirect for both"
+  - decision: "Run local development over HTTPS"
+    reasoning: "Meta login requires a secure context"
+    alternatives:
+      - "Test only on deployed environments"
+techStack:
+  - "Next.js 16"
+  - "React 19"
+  - "TypeScript"
+  - "Zod"
+  - "Vitest"
+  - "Meta Embedded Signup"
+impact:
+  metrics:
+    - label: "WhatsApp signup module"
+      value: "161 lines"
+    - label: "Status"
+      value: "Chat sync and template forms in progress, not released"
+  qualitative: "Channel connection flows are implemented with DTO mapping and tests; follow-on chat sync and template work is still in progress."
+learnings:
+  - "Mocks hide real API shapes, so map responses at the boundary"
+  - "Third-party SDK constraints belong in project docs from day one"
+featured: false
+status: ongoing
+order: 4
+relatedDecisions:
+  - "dual-mode-channel-connection"
+---
+
+I wanted to know why connect worked in mocks but failed on staging. Gmail and WhatsApp did not return the same kind of payload.
+
+I contributed Gmail OAuth and a 161-line WhatsApp Embedded Signup module, with DTO mapping and tests on Next.js 16 and Zod. Local dev runs over HTTPS for Meta's SDK. Chat sync and template forms are in progress and are not released.
+
+I would write HTTPS, script and popup requirements in project docs before the first UI mock, not after the first failed login.
