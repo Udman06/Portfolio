@@ -70,7 +70,7 @@ export const siteConfig = {
    * 
    * Default meta description for SEO and social sharing.
    */
-  description: getEnv('SITE_DESCRIPTION', 'Frontend engineer building React and Next.js products—internal tools, marketing sites, and customer workflows. Based in Delhi, working from Noida.'),
+  description: getEnv('SITE_DESCRIPTION', 'Udayan Mishra is a Junior Software Engineer at Reelax, shipping production React, Next.js and TypeScript apps: internal consoles, high-performance marketing sites and creator-marketing workflows.'),
   
   /**
    * Author information
@@ -83,16 +83,16 @@ export const siteConfig = {
     name: getEnv('SITE_AUTHOR_NAME', 'Udayan Mishra'),
     
     /** Professional title or role */
-    title: getEnv('SITE_AUTHOR_TITLE', 'Frontend Engineer'),
+    title: getEnv('SITE_AUTHOR_TITLE', 'Junior Software Engineer'),
     
     /** Short biography or professional summary */
-    bio: getEnv('SITE_AUTHOR_BIO', 'I live in Delhi and work from Noida. B.Tech in Computer Science, Manipal University Jaipur, Sep 2022 to Jul 2026.'),
+    bio: getEnv('SITE_AUTHOR_BIO', 'Junior Software Engineer at Reelax. B.Tech in Computer Science, Manipal University Jaipur (2022 to 2026). Based in Delhi, working from Noida.'),
     
     /** Contact email address */
     email: getEnv('SITE_AUTHOR_EMAIL', 'udayanmishra354@gmail.com'),
     
     /** Location (optional, empty string to hide) */
-    location: getEnv('SITE_AUTHOR_LOCATION', ''),
+    location: getEnv('SITE_AUTHOR_LOCATION', 'Delhi, India'),
   },
   
   /**
@@ -103,10 +103,10 @@ export const siteConfig = {
    */
   social: {
     /** GitHub profile URL */
-    github: getEnv('SOCIAL_GITHUB', ''),
+    github: getEnv('SOCIAL_GITHUB', 'https://github.com/Udman06'),
     
     /** LinkedIn profile URL */
-    linkedin: getEnv('SOCIAL_LINKEDIN', ''),
+    linkedin: getEnv('SOCIAL_LINKEDIN', 'https://www.linkedin.com/in/udayan-mishra'),
     
     /** Twitter/X profile URL */
     twitter: getEnv('SOCIAL_TWITTER', ''),
@@ -130,6 +130,7 @@ export const siteConfig = {
     { label: 'Journey', href: '/journey' },
     { label: 'Uses', href: '/uses' },
     { label: 'Contact', href: '/contact' },
+    { label: 'Résumé', href: '/Udayan_Mishra_Resume.pdf' },
   ],
 } as const;
 

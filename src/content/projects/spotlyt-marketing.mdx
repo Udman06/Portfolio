@@ -2,7 +2,7 @@
 title: "Spotlyt Marketing"
 role: "Primary frontend engineer"
 year: 2026
-outcomeSummary: "Rebuilt the public landing site into a fast, video-rich lead funnel with a Lighthouse Performance score of 95+."
+outcomeSummary: "Primary frontend engineer on a video-rich landing site that scores 95+ on Lighthouse Performance and turns visitors into leads. ~83% of the current TypeScript is mine."
 overview: "The public landing site for Spotlyt, an AI influencer-marketing product, built with React 19, Vite, Tailwind CSS 4 and Framer Motion from a Figma section system."
 problem: "The site had to carry autoplaying creator video and motion without hurting load time, and had to turn visitors into leads."
 constraints:
@@ -44,12 +44,15 @@ learnings:
   - "One owner for shared browser resources simplifies every component that uses them"
 featured: true
 status: completed
-order: 2
+order: 3
+links:
+  - label: "spotlyt.in"
+    url: "https://spotlyt.in"
 relatedDecisions:
   - "single-active-reel-playback"
 ---
 
-I wanted to know if a video-heavy landing page could still score 95+ on Lighthouse and still convert visitors. Autoplay rules and many looping reels made that a real question.
+The challenge: make a video-heavy landing page score 95+ on Lighthouse and still convert visitors. Autoplay rules and many looping reels made that a real question.
 
 I implemented the Figma section system in React 19 and Vite, kept one page-level playback manager for the hero, creator wall and demo modal, and lazy-loaded below-the-fold sections. Privacy and Terms sit on their own routes; the contact form validates name, email and optional 10-digit Indian mobile before the API call, with toast feedback. Environment-specific Open Graph metadata covers the OG image and hero media per deploy.
 

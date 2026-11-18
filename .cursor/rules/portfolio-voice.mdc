@@ -2,8 +2,8 @@
 description: Voice and fact rules for all portfolio copy
 alwaysApply: true
 ---
-VOICE: warm, curious, plain. First person. Short sentences, with an occasional longer one.
-Show curiosity by naming the question I was trying to answer ("I wanted to know why...").
+VOICE: confident, direct, professional. First person. Lead with outcomes and ownership.
+Short, punchy sentences. Headlines state what I do and the result, not what I hope to do.
 AUDIENCE: hiring managers and startup founders. Lead with the human problem and the result.
 Keep one precise technical line per section (stack or decision) for engineers.
 BALANCE: every case study has (1) what pulled me in, (2) what I decided and why,

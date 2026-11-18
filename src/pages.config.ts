@@ -17,28 +17,28 @@ interface PageMeta {
 export const pagesConfig = {
   home: {
     title: 'Home',
-    description: 'Frontend engineer building React and Next.js products—internal tools, marketing sites, and customer workflows.',
+    description: 'Junior Software Engineer at Reelax shipping production React, Next.js and TypeScript apps: admin consoles, fast marketing sites and creator-marketing workflows.',
   },
   
   projects: {
     title: 'Projects',
-    description: 'Case studies on Reelax Admin v3, Spotlyt Marketing, Reelax Ads Web, Spotlyt apps, and Reelax Brand v2.',
+    description: 'Case studies from Reelax: a sole-engineer admin console, a 95+ Lighthouse marketing site, a creator CRM, and OAuth and Meta signup integrations.',
     heading: 'Projects',
-    intro: 'Each write-up starts with the problem someone felt, then the call I made and what shipped.',
+    intro: 'Production work from Reelax. Each case study covers the problem, the decisions I made, what shipped and what I would change. My role is stated on every one.',
   },
   
   decisions: {
     title: 'Decisions',
-    description: 'A log of frontend and integration decisions: session handling, legacy migration, video playback, and channel connection.',
+    description: 'Engineering decision records from production work: session handling, legacy migration, video playback and channel connection.',
     heading: 'Decisions',
-    intro: 'Short records of what I chose, what I skipped, and why—while the code was still fresh.',
+    intro: 'Short decision records written as the code shipped: the context, the options I weighed, and why I chose what I did.',
   },
   
   journey: {
     title: 'Journey',
-    description: 'Timeline from Honest Digital and Reelax internships through B.Tech completion and Reelax Admin v3.',
+    description: 'From Honest Digital and a Reelax internship to a full-time Junior Software Engineer role at Reelax.',
     heading: 'Journey',
-    intro: 'Milestones and transitions that shaped how I work on React and Next.js products.',
+    intro: 'Two companies, 10+ live products and six production codebases, from intern to full-time engineer in under eighteen months.',
   },
   
   writing: {
@@ -57,15 +57,15 @@ export const pagesConfig = {
   
   uses: {
     title: 'Uses',
-    description: 'Languages, frameworks and tools I use for frontend work.',
+    description: 'The languages, frameworks and tools I use to ship production web apps.',
     heading: 'Uses',
-    intro: 'Stack and tooling I reach for on React, Next.js and TanStack projects.',
+    intro: 'The stack and tooling behind the work on this site.',
   },
   
   contact: {
     title: 'Contact',
-    description: 'Get in touch about frontend and product engineering roles, projects or collaborations.',
-    heading: 'Get in touch',
+    description: 'Contact Udayan Mishra, Junior Software Engineer at Reelax, about products, collaborations or engineering conversations.',
+    heading: 'Let\'s talk',
   },
 } as const;
 

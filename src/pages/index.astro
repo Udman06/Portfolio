@@ -40,6 +40,7 @@ import ForwardLink from '../components/ForwardLink.astro';
 import Testimonials from '../components/Testimonials.astro';
 import { getCollection } from 'astro:content';
 import { siteConfig } from '../config';
+import { personalProjects } from '../personalProjects';
 
 /**
  * Queries and filters featured projects for hero section
@@ -71,6 +72,30 @@ const allDecisions = await getCollection('decisions');
 const recentDecisions = allDecisions
   .sort((a, b) => new Date(b.data.date).getTime() - new Date(a.data.date).getTime())
   .slice(0, 2);
+
+const stats = [
+  { value: '6', label: 'Production codebases at Reelax' },
+  { value: '220+', label: 'Commits shipped at Reelax' },
+  { value: '30+', label: 'Merged pull requests' },
+  { value: '10+', label: 'Live products at Honest Digital' },
+  { value: '~17k', label: 'Lines of TypeScript, Admin v3 (sole engineer)' },
+  { value: '95+', label: 'Lighthouse Performance, Spotlyt Marketing' },
+];
+
+const offers = [
+  {
+    title: 'Internal tools and admin consoles',
+    body: 'Role-aware navigation, session handling and data-heavy tables with filters, exports and custom fields. I built Reelax Admin v3 end to end.',
+  },
+  {
+    title: 'High-performance marketing sites',
+    body: 'Video and motion-rich pages that still load fast and convert. Spotlyt Marketing scores 95+ on Lighthouse Performance.',
+  },
+  {
+    title: 'Integrations and product workflows',
+    body: 'Gmail OAuth, Meta Embedded Signup, checkout and campaign-state rules, with API responses normalised at the boundary and covered by tests.',
+  },
+];
 ---
 
 <BaseLayout>
@@ -92,19 +117,21 @@ const recentDecisions = allDecisions
       <div class="hero-grid">
         <!-- Left: Value Statement -->
         <div class="hero-left">
+          <p class="hero-eyebrow">Hi, I'm {siteConfig.author.name}.</p>
           <h1 class="hero-title">
-            I build React and Next.js products where the UI has to match messy, real APIs.
+            Software engineer shipping production React and Next.js apps.
           </h1>
           <p class="hero-sub">
-            Case studies on what broke, what I chose, and what shipped.
+            I'm a {siteConfig.author.title} at Reelax, building Reelax Brand v2: competitor reports, creator collections and role-based access for brands. Before that I delivered Reelax Admin v3 as the sole engineer and was primary frontend engineer on the Spotlyt marketing site (95+ Lighthouse).
           </p>
-          <p class="hero-meta">
-            {siteConfig.author.name} · {siteConfig.author.title}
-            {siteConfig.author.location && ` · ${siteConfig.author.location}`}
-          </p>
+          <dl class="hero-status">
+            <div><dt>Now</dt><dd>{siteConfig.author.title} at Reelax, since Oct 2026</dd></div>
+            <div><dt>Based</dt><dd>Delhi, India · working from Noida</dd></div>
+            <div><dt>Stack</dt><dd>React, Next.js, TypeScript, TanStack, Tailwind CSS</dd></div>
+          </dl>
           <div class="hero-cta">
-            <a href="/projects" class="btn-primary">Read case studies</a>
-            <a href="/decisions" class="btn-secondary">See decisions</a>
+            <a href="/projects" class="btn-primary">See my work</a>
+            <a href="/Udayan_Mishra_Resume.pdf" class="btn-secondary" download>Download résumé</a>
           </div>
         </div>
 
@@ -123,21 +150,64 @@ const recentDecisions = allDecisions
       </div>
     </section>
 
-    <!-- Introduction -->
+    <!-- Stats -->
+    <section class="stats" aria-label="Highlights">
+      {stats.map((stat) => (
+        <div class="stat">
+          <span class="stat-value">{stat.value}</span>
+          <span class="stat-label">{stat.label}</span>
+        </div>
+      ))}
+    </section>
+
+    <!-- About -->
     <section class="introduction">
+      <h2>About</h2>
       <p>
-        {siteConfig.author.bio}
+        I turn complex product requirements into fast, dependable interfaces. I joined Reelax as a Frontend Developer Intern in June 2026 and was promoted to full-time {siteConfig.author.title} four months later. In that time I took Reelax Admin v3 from an empty repository to a delivered ~17,000-line TypeScript console, rebuilt the Spotlyt marketing site, and shipped the My Creators CRM on Reelax Ads Web. Today I'm one of the main engineers on Reelax Brand v2, with 133 of its 268 commits on the development branch.
       </p>
       <p>
-        I'm a frontend engineer. At Reelax (Jun to Oct 2026) I worked across six production repositories with 220+ commits and 30+ merged PRs. I built Reelax Admin v3 as the sole engineer, was primary frontend engineer on Spotlyt Marketing, and contributed across Ads Web, Spotlyt customer and Delivery apps, and Reelax Brand v2. I'm also learning backend with Node.js, Express and MongoDB through a small notes API.
+        Before Reelax, I spent a year at Honest Digital delivering 10+ live products across 6 client engagements on a shared component library. I hold a B.Tech in Computer Science from Manipal University Jaipur (2026), and I'm extending into the backend with Node.js, Express and MongoDB.
       </p>
-      <ForwardLink href="/journey" text="Read my journey" variant="muted" />
+      <ForwardLink href="/journey" text="See the full journey" variant="muted" />
+    </section>
+
+    <!-- What I do -->
+    <section class="thinking">
+      <h2>What I do</h2>
+      <div class="offer-grid">
+        {offers.map((offer) => (
+          <article class="offer">
+            <h3>{offer.title}</h3>
+            <p>{offer.body}</p>
+          </article>
+        ))}
+      </div>
+    </section>
+
+    <!-- Personal projects -->
+    <section class="personal">
+      <h2>Personal projects</h2>
+      <div class="personal-grid">
+        {personalProjects.map((p) => (
+          <article class="personal-card">
+            <h3>{p.title}</h3>
+            <p>{p.summary}</p>
+            <p class="personal-stack">{p.stack.join(' · ')}</p>
+            {p.links.length > 0 && (
+              <p class="personal-links">
+                {p.links.map((l) => <a href={l.url} target="_blank" rel="noopener noreferrer">{l.label} ↗</a>)}
+              </p>
+            )}
+          </article>
+        ))}
+      </div>
     </section>
 
     <!-- Recent Decisions -->
     <section class="recent-decisions">
       <div class="section-header">
-        <h2>Recent decisions</h2>
+        <h2>Engineering decisions</h2>
         <ForwardLink href="/decisions" text="View all" variant="muted" />
       </div>
       
@@ -163,23 +233,15 @@ const recentDecisions = allDecisions
     <!-- Testimonials -->
     <Testimonials limit={3} />
 
-    <!-- What I Think About -->
-    <section class="thinking">
-      <h2>Problems I work on</h2>
-      <p class="thinking-list">
-        Normalising legacy API responses at the UI boundary · Role-aware navigation and session handling · Table filters, exports and custom fields at scale · Video and motion without hurting first load · OAuth and third-party SDK flows in production apps · Writing decisions down as the code ships
-      </p>
-    </section>
-
     <!-- CTA -->
     <section class="cta">
-      <h2>Get in touch</h2>
+      <h2>Let's talk</h2>
       <p>
-        I'm open to frontend and product engineering roles. Send a note about a role, a project, or something you're building.
+        Building a product, growing a team, or want to compare notes on React, Next.js and TanStack? My inbox is open.
       </p>
       <div class="cta-buttons">
-        <a href="/projects" class="btn-primary">View my work</a>
-        <a href="/contact" class="btn-secondary">Get in touch</a>
+        <a href={`mailto:${siteConfig.author.email}`} class="btn-primary">Email me</a>
+        <a href="/projects" class="btn-secondary">View case studies</a>
       </div>
     </section>
   </main>
@@ -217,9 +279,6 @@ const recentDecisions = allDecisions
       color: var(--color-text);
     }
 
-    .hero-title-emphasis {
-      color: var(--color-text-secondary);
-    }
 
     .hero-sub {
       font-size: 1.125rem;
@@ -228,14 +287,110 @@ const recentDecisions = allDecisions
       line-height: 1.6;
     }
 
-    .hero-meta {
-      font-size: 0.875rem;
+
+    .hero-eyebrow {
+      font-size: 1rem;
       color: var(--color-text-muted);
-      margin-bottom: 2rem;
-      letter-spacing: 0.01em;
+      margin-bottom: 0.75rem;
+    }
+
+    .hero-status {
+      display: grid;
+      gap: 0.5rem;
+      margin: 0 0 2rem;
+      font-size: 0.875rem;
+    }
+
+    .hero-status div {
+      display: flex;
+      gap: 0.75rem;
+    }
+
+    .hero-status dt {
+      min-width: 3.5rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      font-size: 0.75rem;
+      color: var(--color-text-muted);
+      padding-top: 0.1rem;
+    }
+
+    .hero-status dd {
+      margin: 0;
+      color: var(--color-text-secondary);
+    }
+
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1px;
+      background: var(--color-border);
+      border: 1px solid var(--color-border);
+      border-radius: 8px;
+      overflow: hidden;
+      margin-bottom: 5rem;
+    }
+
+    .stat {
+      background: var(--color-bg);
+      padding: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.375rem;
+    }
+
+    .stat-value {
+      font-size: 2rem;
+      font-weight: 600;
+      letter-spacing: -0.02em;
+      color: var(--color-text);
+      line-height: 1.1;
+    }
+
+    .stat-label {
+      font-size: 0.8125rem;
+      color: var(--color-text-secondary);
+      line-height: 1.4;
+    }
+
+    .introduction h2 {
+      font-size: 1.25rem;
+      font-weight: 600;
+      letter-spacing: -0.01em;
+      color: var(--color-text);
+      margin-bottom: 1.25rem;
+    }
+
+    .offer-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1rem;
+    }
+
+    .offer {
+      padding: 1.5rem;
+      border: 1px solid var(--color-border);
+      border-radius: 8px;
+      background: var(--color-bg-secondary);
+    }
+
+    .offer h3 {
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--color-text);
+      margin-bottom: 0.5rem;
+      line-height: 1.4;
+    }
+
+    .offer p {
+      font-size: 0.9375rem;
+      line-height: 1.6;
+      color: var(--color-text-secondary);
     }
 
     .hero-cta {
+      flex-wrap: wrap;
       display: flex;
       gap: 1rem;
     }
@@ -336,7 +491,7 @@ const recentDecisions = allDecisions
       margin-bottom: 1rem;
     }
 
-    .introduction p:first-child {
+    .introduction p:first-of-type {
       color: var(--color-text);
     }
 
@@ -414,12 +569,6 @@ const recentDecisions = allDecisions
       letter-spacing: -0.01em;
     }
 
-    .thinking-list {
-      font-size: 1.0625rem;
-      line-height: 1.9;
-      color: var(--color-text-secondary);
-      max-width: 680px;
-    }
 
     .cta {
       padding: 3rem 0;
@@ -486,6 +635,24 @@ const recentDecisions = allDecisions
         font-size: 1rem;
       }
 
+      .stats,
+      .offer-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .stats {
+        grid-template-columns: repeat(2, 1fr);
+        margin-bottom: 3.5rem;
+      }
+
+      .stat {
+        padding: 1.125rem;
+      }
+
+      .stat-value {
+        font-size: 1.5rem;
+      }
+
       .section-header {
         flex-direction: column;
         align-items: flex-start;
@@ -503,6 +670,66 @@ const recentDecisions = allDecisions
       .cta-buttons .btn-primary,
       .cta-buttons .btn-secondary {
         width: 100%;
+      }
+    }
+
+    .personal {
+      margin-bottom: 5rem;
+    }
+
+    .personal h2 {
+      font-size: 1.25rem;
+      font-weight: 600;
+      letter-spacing: -0.01em;
+      margin-bottom: 1.25rem;
+    }
+
+    .personal-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1rem;
+    }
+
+    .personal-card {
+      padding: 1.5rem;
+      border: 1px solid var(--color-border);
+      border-radius: 8px;
+      background: var(--color-bg-secondary);
+    }
+
+    .personal-card h3 {
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--color-text);
+      margin-bottom: 0.5rem;
+    }
+
+    .personal-card p {
+      font-size: 0.9375rem;
+      line-height: 1.6;
+      color: var(--color-text-secondary);
+    }
+
+    .personal-stack {
+      margin-top: 0.75rem;
+      font-size: 0.8125rem !important;
+      color: var(--color-text-muted) !important;
+    }
+
+    .personal-links {
+      display: flex;
+      gap: 1rem;
+      margin-top: 0.75rem;
+    }
+
+    .personal-links a {
+      color: var(--color-text);
+      text-underline-offset: 3px;
+    }
+
+    @media (max-width: 768px) {
+      .personal-grid {
+        grid-template-columns: 1fr;
       }
     }
   </style>

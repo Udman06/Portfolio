@@ -91,6 +91,7 @@ const {
   relatedProjects,
   relatedDecisions,
   status,
+  links,
 } = project.data;
 
 // Status display configuration
@@ -171,6 +172,13 @@ const readingTime = formatReadingTime(calculateReadingTime(allText));
         <span class="meta-item">{readingTime}</span>
       </div>
       <p class="outcome-summary">{outcomeSummary}</p>
+      {links && links.length > 0 && (
+        <p class="project-links">
+          {links.map((link) => (
+            <a href={link.url} target="_blank" rel="noopener noreferrer">{link.label} ↗</a>
+          ))}
+        </p>
+      )}
     </header>
 
     <!-- Overview Section -->
@@ -491,5 +499,17 @@ const readingTime = formatReadingTime(calculateReadingTime(allText));
         padding: 1.25rem;
       }
     }
-  </style>
+    .project-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-top: 1rem;
+    font-size: 0.9375rem;
+  }
+
+  .project-links a {
+    color: var(--color-text);
+    text-underline-offset: 3px;
+  }
+</style>
 </BaseLayout>

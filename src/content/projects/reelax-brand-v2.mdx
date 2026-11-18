@@ -1,50 +1,74 @@
 ---
 title: "Reelax Brand v2"
-role: "Contributor"
+role: "Major contributor"
 year: 2026
-outcomeSummary: "Contributed WhatsApp Embedded Signup and Gmail OAuth for channel connection; chat sync and template forms are in progress and not released."
-overview: "Outreach channel connection on Reelax Brand v2: Next.js 16, React 19, Zod, DTO mapping with tests, and HTTPS for local Meta SDK development."
-problem: "Brands need connected WhatsApp and Gmail before outreach, and live APIs did not match the first UI mocks."
+outcomeSummary: "Building the next-generation Reelax brand app: competitor and brand-insight reports, collections, OTP auth and role-based access. 133 of 268 commits on the development branch are mine."
+overview: "Reelax Brand v2 is the rebuilt app brands use to discover creators, track competitors and run outreach, on Next.js 16, React 19, TypeScript, Tailwind CSS 4 and Zod. I am one of its main engineers and it is my current focus."
+problem: "Brands needed competitor and brand-insight reports they could trust, creator lists they could organise and share, and a team model where each member sees only what their role allows. All of it had to sit on a new design system and on APIs that were still being built."
 constraints:
-  - "Gmail uses OAuth redirect; WhatsApp uses Meta Embedded Signup"
-  - "Meta SDK requires HTTPS, including local development"
-  - "Chat sync and template forms are not released yet"
-approach: "Mapped API responses through a DTO layer with unit tests, implemented the 161-line WhatsApp Embedded Signup module and Gmail OAuth, and ran local dev over HTTPS."
+  - "Reports are generated asynchronously by the backend and can take a while"
+  - "Report refreshes and some actions spend credits"
+  - "Role permissions come from a new v2 API and must hold on the server, not only in the UI"
+  - "Shared codebase with other engineers and a design system still taking shape"
+approach: "Modelled report generation as a job: the UI polls its status, gates report pages until data is ready, and tells first-time generation apart from a refresh. Charts and exports were built on shared molecules so Competitor Analysis and Brand Insight behave the same. Roles travel on the session, gate routes and navigation, and are enforced again in server actions."
 keyDecisions:
+  - decision: "Poll report status and gate report pages until generation finishes"
+    reasoning: "A half-loaded report looks like wrong data. Page-shaped skeletons and a clear generating state are more honest"
+    alternatives:
+      - "Render whatever data has arrived"
+  - decision: "Enforce role permissions in server actions as well as in the UI"
+    reasoning: "Hiding a button is a convenience, not security. The server is the real gate"
+    alternatives:
+      - "UI-only gating"
+  - decision: "Make CSV exports fetch every page, not just the visible one"
+    reasoning: "An export that silently stops at page one is a data bug the user only finds later"
+    alternatives:
+      - "Export the current page"
   - decision: "Support redirect for Gmail and embedded signup for WhatsApp"
     reasoning: "Gmail returns an OAuth URL; WhatsApp returns Meta configuration fields"
     alternatives:
       - "Backend-only redirect for both"
-  - decision: "Run local development over HTTPS"
-    reasoning: "Meta login requires a secure context"
-    alternatives:
-      - "Test only on deployed environments"
 techStack:
   - "Next.js 16"
   - "React 19"
   - "TypeScript"
+  - "Tailwind CSS 4"
   - "Zod"
+  - "TanStack Table"
+  - "Recharts"
+  - "Radix UI"
   - "Vitest"
-  - "Meta Embedded Signup"
 impact:
   metrics:
-    - label: "WhatsApp signup module"
-      value: "161 lines"
-    - label: "Status"
-      value: "Chat sync and template forms in progress, not released"
-  qualitative: "Channel connection flows are implemented with DTO mapping and tests; follow-on chat sync and template work is still in progress."
+    - label: "Commits on development"
+      value: "133 of 268 (Nov 2026)"
+    - label: "Features shipped"
+      value: "Competitor Analysis, Brand Insight, Collections, OTP auth, role-based access"
+    - label: "Integrations"
+      value: "Gmail OAuth and WhatsApp Embedded Signup"
+  qualitative: "Brands can generate, read and export competitor and brand-insight reports, organise creators into shareable collections, sign in with email codes and invite teammates whose access follows their role."
 learnings:
+  - "Async jobs need a visible state in the UI, or users read missing data as wrong data"
   - "Mocks hide real API shapes, so map responses at the boundary"
-  - "Third-party SDK constraints belong in project docs from day one"
-featured: false
+  - "Shared molecules pay off the second time a feature looks like the first"
+featured: true
 status: ongoing
-order: 4
+order: 2
+links:
+  - label: "getreelax.com"
+    url: "https://getreelax.com"
 relatedDecisions:
   - "dual-mode-channel-connection"
 ---
 
-I wanted to know why connect worked in mocks but failed on staging. Gmail and WhatsApp did not return the same kind of payload.
+Reelax Brand v2 is where I spend my days now. It is the rebuilt brand app, and I own large parts of it.
 
-I contributed Gmail OAuth and a 161-line WhatsApp Embedded Signup module, with DTO mapping and tests on Next.js 16 and Zod. Local dev runs over HTTPS for Meta's SDK. Chat sync and template forms are in progress and are not released.
+**Reports.** I built the Competitor Analysis and Brand Insight reports end to end on the frontend: a create form with a 1-year lookback and an Always On period picker, generation-status polling, credit-confirmed refreshes, market-positioning quadrant charts, influencer-overlap Venn diagrams, PDF download and CSV exports that fetch every page.
 
-I would write HTTPS, script and popup requirements in project docs before the first UI mock, not after the first failed login.
+**Collections.** Brands can create, share, bulk-select and delete creator lists, and add influencers in batches with live sync feedback.
+
+**Auth and roles.** Email OTP login, sign-up, invite links and contact us. Roles from the v2 permissions API ride on the session, gate routes and navigation, hide actions a member cannot take, and are enforced again in server actions.
+
+**Earlier work.** Gmail OAuth and a 161-line WhatsApp Embedded Signup module, with DTO mapping and tests, and HTTPS local development for Meta's SDK.
+
+Next time I would agree the report-status contract with the backend before building the UI. Polling, gating and refresh states were easier to build once the states were named.

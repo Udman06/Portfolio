@@ -3,9 +3,9 @@ title: "Reelax Admin v3"
 role: "Sole frontend engineer"
 year: 2026
 teamSize: 1
-outcomeSummary: "Sole-engineer console for auth with roles, dashboard, influencer discovery, organisations, payouts and KYC; many legacy routes remain placeholders."
+outcomeSummary: "Built and delivered Reelax's new operations console from an empty repo as the sole engineer: ~17,000 lines of TypeScript covering role-based auth, influencer discovery, organisations, payouts and KYC."
 overview: "An internal operations console built on React 19, TanStack Start, Router and Query, Tailwind CSS 4 and shadcn/ui, in about 17,000 lines of TypeScript."
-problem: "The team needed to replace the legacy admin with a faster, role-aware console while keeping its workflows working."
+problem: "Operations ran on a legacy admin. The team needed a faster, role-aware replacement without breaking bookmarks or the daily workflows people depended on."
 constraints:
   - "Legacy APIs return older response shapes"
   - "Many legacy screens, so delivery had to be phased"
@@ -40,12 +40,12 @@ impact:
       value: "7 Vitest files and 1 Playwright spec"
     - label: "Modules built"
       value: "Auth with roles, dashboard, influencer discovery, organisations, payouts, KYC views"
-  qualitative: "Shipped modules on a ~17,000-line TypeScript base; many legacy routes are still placeholders."
+  qualitative: "Delivered. Operators run auth, discovery, organisations, payouts and KYC on a modern, typed console that replaced the legacy admin without breaking existing URLs."
 learnings:
   - "Writing the route-parity registry first made the scope visible"
   - "Decisions are easier to defend when they are written down as they are made"
 featured: true
-status: ongoing
+status: completed
 order: 1
 relatedDecisions:
   - "client-only-authenticated-routes"
@@ -53,8 +53,8 @@ relatedDecisions:
   - "placeholder-routes-for-legacy-parity"
 ---
 
-I wanted to know whether we could replace the legacy admin without breaking bookmarks or daily ops work. Operators still needed auth, discovery, org wallets, and payouts while dozens of old URLs existed.
+The brief: replace the legacy admin without breaking bookmarks or daily ops work. Operators still needed auth, discovery, org wallets, and payouts while dozens of old URLs existed.
 
-I built from setup with a route-parity registry first, then shipped modules in priority order with one API client in front of the legacy backend. Stack: React 19, TanStack Start, Router and Query, Tailwind CSS 4, shadcn/ui. Auth includes roles; discovery, organisations, payouts and KYC views are in place while many legacy routes stay placeholders.
+I built from setup with a route-parity registry first, then shipped modules in priority order with one API client in front of the legacy backend. Stack: React 19, TanStack Start, Router and Query, Tailwind CSS 4, shadcn/ui. Auth includes roles; discovery, organisations, payouts and KYC views shipped, and the console is now delivered.
 
 Next time I would split the helper surface earlier—even with a registry, some shared table patterns could move out before the module count grows.

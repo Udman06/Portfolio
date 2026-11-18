@@ -107,6 +107,9 @@ const projectsCollection = defineCollection({
     
     /** Related decision slugs for cross-referencing */
     relatedDecisions: z.array(z.string()).optional(),
+
+    /** Public links (live product, company page). Never internal tools. */
+    links: z.array(z.object({ label: z.string(), url: z.string().url() })).optional(),
   }),
 });
 

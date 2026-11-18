@@ -2,7 +2,7 @@
 title: "Reelax Ads Web — My Creators and analytics"
 role: "Major contributor"
 year: 2026
-outcomeSummary: "My Creators CRM and advanced analytics refactor on Reelax Ads Web."
+outcomeSummary: "Shipped the My Creators CRM (13 modules, 9 endpoints) and refactored campaign analytics, so brands can filter, export and read large creator datasets."
 overview: "Reelax Ads Web: My Creators CRM (21+ commits, 13 modules, 9 endpoints) and advanced analytics refactor (20 commits), with a ~4,000-line helper module about 91% mine."
 problem: "Brands manage their own creator lists and read campaign performance, and both screens had to handle custom data, large lists and clearer metrics."
 constraints:
@@ -43,10 +43,13 @@ learnings:
   - "Cost confirmation belongs before the action, not after"
 featured: true
 status: completed
-order: 3
+order: 4
+links:
+  - label: "getreelax.com"
+    url: "https://getreelax.com"
 ---
 
-I wanted to know how brands could keep large creator lists usable when every team adds different custom fields. The same question applied to campaign analytics: lots of numbers, not much signal.
+The problem: keep large creator lists usable when every brand adds different custom fields. The same question applied to campaign analytics: lots of numbers, not much signal.
 
 I centralised table mapping, filters and export in one helper module (~4,000 lines) on React 18, Redux and ag-Grid, with typed custom fields and batched Excel export. Analytics screens became sections with tooltips and metric cards; credit-gated actions ask for confirmation before the API call.
 
